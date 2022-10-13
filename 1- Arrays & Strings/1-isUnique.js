@@ -28,7 +28,8 @@ function isUniqueB(str) {
   }
   // if you reach here this means no match found.
   return true;
-  // Time: O(N^2) and Space: O(1)
+  // Time: O(N^2)
+  // Space: O(1)
 }
 
 // 2. Sorting Approach: sort the str using quick sort and then check if there
