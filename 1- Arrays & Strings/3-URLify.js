@@ -14,6 +14,8 @@
     ['M', 'r', ' ', 'J', 'o', 'h', 'n', ' ', 'S', 'm', 'i', 't', 'h']
       0    1    2    3    4    5    6    7    8    9    10   11   12
 */
+
+// My first draft
 function URLify(str, trueLength = str.length) {
   // As strings are immutable in js we convert it into array and
   // then return the joined result
@@ -50,5 +52,48 @@ function URLify(str, trueLength = str.length) {
   // Time complexity: O(N^2)
   // Space complexity: O(N)
 }
-
 URLify('I am Mayank Mudgal');
+
+// Lessons
+// 1. Realize , Why the true length was given :
+//    to shift elements from the end
+
+//Optimal solution using 2 pointer approach
+function URL(str, l = str.length) {
+  str = str.split('');
+  let spaceCount = 0;
+
+  // 1. first count no of spaces
+  for (let i = 0; i < l; i++) {
+    if (str[i] === ' ') {
+      spaceCount++;
+    }
+  }
+  // newLength of the string
+  let newLen = l + 2 * spaceCount;
+  // as the delimiter is ' '(space) replace it with %20
+  // 3 - 1 = 2
+  // for every space we require 2 more empty space.
+
+  // last index of str array
+  str[newLen - 1] = ' ';
+
+  // string end
+  let strEnd = l - 1;
+  // actual end
+  let actualEnd = newLen - 1;
+  for (let i = strEnd; i > -1; i--) {
+    if (str[i] === ' ') {
+      str[actualEnd--] = '0';
+      str[actualEnd--] = '2';
+      str[actualEnd--] = '%';
+    } else {
+      str[actualEnd] = str[i];
+      actualEnd--;
+    }
+  }
+  console.log(str.join(''));
+  // Time complexity: O(N)
+  // Space complexity: O(1)
+}
+URL('I am king kong');
