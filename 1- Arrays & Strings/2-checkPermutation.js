@@ -9,6 +9,7 @@
 //    character in s2 appeared more times than present in s1 return false.
 //    else return true.
 
+// see
 function checkPermutaion(s1, s2) {
   if (!s1 || !s2) return null;
   if (s1.length != s2.length) return false;
