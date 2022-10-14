@@ -43,6 +43,8 @@ function URLify(str, trueLength = str.length) {
   }
   str = arr.join('');
   console.log(str);
+  // Time complexity: O(N^2)
+  // Space complexity: O(N)
 }
 
 URLify('My name is nitin');
