@@ -9,7 +9,7 @@
 //    character in s2 appeared more times than present in s1 return false.
 //    else return true.
 
-function checkPermutaion(s1, s2) {
+function checkPermutaionH(s1, s2) {
   if (!s1 || !s2) return null;
   if (s1.length != s2.length) return false;
 
@@ -38,5 +38,34 @@ function checkPermutaion(s1, s2) {
   // Time: O(N) here N is the size of strings
   // Space: O(N) due to hashmap
 }
-console.log(checkPermutaion('abcd', 'dca'));
-console.log(checkPermutaion('abcdefgh', 'hgfabcde'));
+console.log(checkPermutaionH('abcd', 'dca'));
+console.log(checkPermutaionH('abcdefgh', 'hgfabcde'));
+
+// 2. Sorting: first sort both the strings and then compare each character if not equal 
+//    then return false, else return true
+
+function checkPermutaionS(s1, s2) {
+  if(!s1 || !s2) return null;
+  if(s1.length != s2.length) return false;
+  
+  // sort both the strings 
+  s1 = s1.split('').sort().join('');
+  s2 = s2.split('').sort().join('');
+  console.log(s1, s2);
+  
+  // Now comparing each character in s1 and s2
+  for(let i = 0; i < s1.length; i++){
+    
+    // if character mismatch return false
+    if(s1[i] != s2[i]){
+      return false;
+    }
+  }
+  // No mismatch found so return true.
+  return true;
+  // O(NlogN + N) for simplicity I took quicksort's
+  // NlogN time and N for looping through
+  // Time complexity: O(NlogN)
+  // Space complexity: O(1) const as no extra space was used.
+}
+console.log(checkPermutaionS('anant', 'nnaat'))
