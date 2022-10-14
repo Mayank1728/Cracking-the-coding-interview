@@ -9,12 +9,7 @@
 //    character in s2 appeared more times than present in s1 return false.
 //    else return true.
 
-<<<<<<< HEAD
-// see
-function checkPermutaion(s1, s2) {
-=======
 function checkPermutaionH(s1, s2) {
->>>>>>> bd88d808e4799e632521b0353c0a313fbc6a7c12
   if (!s1 || !s2) return null;
   if (s1.length != s2.length) return false;
 
@@ -46,23 +41,22 @@ function checkPermutaionH(s1, s2) {
 console.log(checkPermutaionH('abcd', 'dca'));
 console.log(checkPermutaionH('abcdefgh', 'hgfabcde'));
 
-// 2. Sorting: first sort both the strings and then compare each character if not equal 
+// 2. Sorting: first sort both the strings and then compare each character if not equal
 //    then return false, else return true
 
 function checkPermutaionS(s1, s2) {
-  if(!s1 || !s2) return null;
-  if(s1.length != s2.length) return false;
-  
-  // sort both the strings 
+  if (!s1 || !s2) return null;
+  if (s1.length != s2.length) return false;
+
+  // sort both the strings
   s1 = s1.split('').sort().join('');
   s2 = s2.split('').sort().join('');
   console.log(s1, s2);
-  
+
   // Now comparing each character in s1 and s2
-  for(let i = 0; i < s1.length; i++){
-    
+  for (let i = 0; i < s1.length; i++) {
     // if character mismatch return false
-    if(s1[i] != s2[i]){
+    if (s1[i] != s2[i]) {
       return false;
     }
   }
@@ -73,4 +67,4 @@ function checkPermutaionS(s1, s2) {
   // Time complexity: O(NlogN)
   // Space complexity: O(1) const as no extra space was used.
 }
-console.log(checkPermutaionS('anant', 'nnaat'))
+console.log(checkPermutaionS('anant', 'nnaat'));
